@@ -92,7 +92,9 @@ for i in range(num_tables):
     df[i]=calcFreq(df[i],fragments)
     #lets do PCA for words of various lengths
     X=np.array(df[i])
-    print("Do PCA analysis for n=",i+1)
+    print("Do PCA analysis for word lenth,n=",i+1)
+    # n_components=2 means to reduce to two features (x,y-to make it easier to plot).The two features chosen 
+    # are chosen to have the maximum information.It is not to be confused with the word length N above.
     pca=PCA(n_components=2)
     X_r=pca.fit_transform(X)
     X_norm.append(normalize(X_r,axis=0,norm='l1'))
